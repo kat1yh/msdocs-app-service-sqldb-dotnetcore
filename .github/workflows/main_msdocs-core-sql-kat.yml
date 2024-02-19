@@ -28,13 +28,6 @@ jobs:
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-      - name: dotnet install ef
-        run: dotnet tool install -g dotnet-ef --version 7.0.14
-
-      - name: dotnet bundle migration
-        run: dotnet ef migrations bundle --runtime linux-x64 -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o \${{env.DOTNET_ROOT}}/myapp/migrate
-
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -61,4 +54,4 @@ jobs:
           app-name: 'msdocs-core-sql-KAT'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7885600AF7554B95A97E8A4527C32E1C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_258908C587684178801256C96B7794B8 }}
